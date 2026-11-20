@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="head flex items-center p-4 bg-gray-100">
+      <p class="text-xl font-bold px-10 pr-[300px] text-blue-900">sonora</p>
+      <p class="px-4 text-gray-500">Наушники</p>
+      <p class="px-4 text-gray-500">Колонки</p>
+      <p class="px-4 text-gray-500">Аксессуары</p>
+      <p class="px-4 text-gray-500">Поддержка</p>
+      <p class="pl-[300px]">Корзина</p>
+    </header>
+
+    <section class="box flex">
+      <div>
+        <img
+          class="img"
+          src="https://eplehuset.no/cdn/shop/files/MQTQ3_928db62b-e506-47ee-9325-8dfbf19e975c.jpg?v=1743589282&utm_source=chatgpt.com"
+          width="600px"
+          height="600px"
+        />
+      </div>
+      <div class="text p-20">
+        <p class="text-orange-600">Новинка</p>
+        <p class="text-3xl font-bold">Studio X</p>
+        <p class="text-gray-600">
+          Беспроводные наушники с активным шумоподавлением.
+        </p>
+        <p class="text-gray-600">До 40 часов работы.</p>
+        <p class="text-2xl font-bold">890 сомони</p>
+        <p class="text-gray-600">Цвет:</p>
+        <div class="flex gap-4">
+          <div class="black w-6 my-5 h-6 bg-black rounded-full"></div>
+          <div
+            class="beige w-6 my-5 h-6 bg-[#d8c5a5] rounded-full border border-[#d8c5a5]"
+          ></div>
+          <div class="gray w-6 my-5 h-6 bg-blue-900 rounded-full"></div>
+        </div>
+        <p>Количество</p>
+        <div
+          class="flex gap-4 bg-gray-200 p-1 border border-gray-700 my-5 w-[100px] items-center justify-center rounded-3xl"
+        >
+          <button class="minus px-2 rounded">-</button>
+          <p id="count">0</p>
+          <button class="plus px-2 rounded">+</button>
+        </div>
+
+        <div class="flex gap-2">
+          <p>Гравировка на чашке</p>
+          <p class="text-gray-400">(бесплатно)</p>
+        </div>
+
+        <input
+          type="text"
+          placeholder="Введите текст"
+          class="input border border-gray-400 p-2 rounded w-[300px] my-5"
+        />
+
+        <div class="flex gap-2">
+          <p class="text-gray-600">На чашке будет:</p>
+          <p class="name"></p>
+        </div>
+
+        <p>☑ Подарочная упаковка + 40 сомони</p>
+
+        <div class="flex gap-2 my-5 border-t border-gray-400 pt-5">
+          <div class="gap-2">
+            <p class="text-gray-500">Итого</p>
+            <p class="text-[30px]">1820 сомони</p>
+            <p>Добавлено: Studio X, Океан, 2 шт</p>
+          </div>
+            <button
+                class="bg-black text-white px-3 py-1 my-3 rounded-3xl hover:bg-blue-900"
+            >
+               Добавить в корзину
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="flex justify-around items-center py-10 bg-gray-100">
+        <div class="bg-gray-200 rounded-3xl w-[250px] h-[100px] py-5 px-5">
+            <p class="font-bold">40 часов</p>
+            <p class="text-gray-500">без подзарядки</p>
+        </div>
+
+        <div class="bg-gray-200 rounded-3xl w-[250px] h-[100px] py-5 px-5">
+            <p class="font-bold">Шумоподавление</p>
+            <p class="text-gray-500">три режима</p>
+        </div>
+
+        <div class="bg-gray-200 rounded-3xl w-[250px] h-[100px] py-5 px-5">
+            <p class="font-bold">Bluetooth 5.3</p>
+            <p class="text-gray-500">два устройства сразу</p>
+        </div>
+
+        <div class="bg-gray-200 rounded-3xl w-[250px] h-[100px] py-5 px-5">
+            <p class="font-bold">Доставка завтра</p>
+            <p class="text-gray-500">по Душанбе бесплатно</p>
+        </div>
+    </footer>
+    <script src="./home.js"></script>
+  </body>
+</html>

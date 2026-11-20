@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Покупки</title>
+</head>
+
+<body class="bg-[#f5f4ef] min-h-screen">
+
+    <div class="w-[690px] mx-auto pt-[60px]">
+
+        <p class="text-[#607d72] text-[16px] font-medium mb-5">
+            Суббота, 14 марта
+        </p>
+
+        <div class="flex justify-between items-center mb-10">
+            <h1 class="text-[52px] font-bold text-[#10201d]">
+                Покупки
+            </h1>
+
+            <p class="count text-[#777] text-[16px]">
+                3 в списке
+            </p>
+        </div>
+
+        <div class="bg-white rounded-[25px] p-3 flex gap-3 mb-12">
+
+            <input
+                type="text"
+                placeholder="Что купить?"
+                class="input w-[210px] px-4 text-[18px] outline-none text-gray-700 placeholder:text-gray-400"
+            >
+
+            <select class="select w-[165px] bg-[#f0eee8] rounded-[18px] px-5 text-[17px] text-gray-700 outline-none">
+                <option>Овощи</option>
+                <option>Хлеб</option>
+                <option>Молочные</option>
+                <option>Фрукты</option>
+            </select>
+
+            <button class="add bg-[#10201d] text-white rounded-[18px] px-7 text-[18px] font-semibold">
+                Добавить
+            </button>
+
+            <button class="search bg-[#10201d] text-white rounded-[18px] px-7 text-[18px] font-semibold">
+                Поиск
+            </button>
+
+        </div>
+
+        <div class="list bg-white rounded-[25px] overflow-hidden">
+
+            <div class="h-[68px] flex items-center justify-between px-6 border-b border-[#eeeeee]">
+                <p class="text-[21px] text-[#454545]">Помидоры</p>
+
+                <div class="flex items-center gap-5">
+                    <span class="bg-[#e2eee6] text-[#907d6c] px-4 py-2 rounded-full text-[15px]">Овощи</span>
+                    <button class="text-[#a67b62] text-[17px]">Удалить</button>
+                </div>
+            </div>
+
+            <div class="h-[68px] flex items-center justify-between px-6 border-b border-[#eeeeee]">
+                <p class="text-[21px] text-[#454545]">Лепёшка</p>
+
+                <div class="flex items-center gap-5">
+                    <span class="bg-[#f0eadc] text-[#907d6c] px-4 py-2 rounded-full text-[15px]">Хлеб</span>
+                    <button class="text-[#a67b62] text-[17px]">Удалить</button>
+                </div>
+            </div>
+
+            <div class="h-[68px] flex items-center justify-between px-6">
+                <p class="text-[21px] text-[#454545]">Огурцы</p>
+
+                <div class="flex items-center gap-5">
+                    <span class="bg-[#e2eee6] text-[#907d6c] px-4 py-2 rounded-full text-[15px]">Овощи</span>
+                    <button class="text-[#a67b62] text-[17px]">Удалить</button>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="text-center text-[#aaa9a4] text-[16px] mt-10">
+            Listo синхронизирует список со всеми членами семьи
+        </p>
+
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>

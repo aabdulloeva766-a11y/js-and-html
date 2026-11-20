@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mosh.tj — Автомобили в Душанбе</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#F4F6F9] text-[#111827] min-h-screen flex flex-col justify-between antialiased">
+
+  <div>
+    <header class="bg-white border-b border-gray-100">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 h-[72px] flex items-center justify-between">
+        <div class="flex items-center gap-8 md:gap-10">
+          <a href="#" class="text-[22px] font-extrabold tracking-tight leading-none">
+            <span class="text-[#111827]">mosh</span><span class="text-[#2563EB]">.tj</span>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-7 text-[14px] font-medium text-[#4B5563]">
+            <a href="#" class="hover:text-[#111827] transition-colors">Купить</a>
+            <a href="#" class="hover:text-[#111827] transition-colors">Продать</a>
+            <a href="#" class="hover:text-[#111827] transition-colors">Проверка авто</a>
+            <a href="#" class="hover:text-[#111827] transition-colors">Кредит</a>
+          </nav>
+        </div>
+
+        <a
+          href="#post-ad"
+          class="bg-[#2563EB] hover:bg-[#1D4ED8] active:scale-[0.99] text-white text-[14px] font-semibold px-5 py-2.5 rounded-xl transition-all shadow-sm"
+        >
+          Разместить объявление
+        </a>
+      </div>
+    </header>
+
+    <main class="max-w-[1200px] mx-auto px-4 sm:px-6 pt-9 pb-12">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-7">
+        <div>
+          <h1 class="text-[26px] sm:text-[30px] font-extrabold text-[#111827] tracking-tight leading-tight">
+            Автомобили в Душанбе
+          </h1>
+          <p class="text-[14px] text-[#6B7280] mt-1">
+            6 объявлений
+          </p>
+        </div>
+
+        <div class="inline-flex items-center self-start sm:self-center bg-[#E7F8F0] text-[#0D9468] text-[13px] sm:text-[14px] font-semibold px-4 py-2 rounded-full">
+          Неделя проверенных авто: проверка бесплатно
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="bg-white rounded-2xl overflow-hidden shadow-[0_2px_10px_rgba(17,24,39,0.04)] hover:shadow-[0_10px_25px_rgba(17,24,39,0.08)] transition-shadow duration-200 cursor-pointer group">
+          <div class="relative h-[220px] w-full bg-gray-200 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=900&q=80"
+              alt="Toyota Camry, 2019"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <span class="absolute top-3.5 left-3.5 bg-[#10B981] text-white text-[12px] font-semibold px-3 py-1 rounded-md shadow-xs">
+              Проверен
+            </span>
+          </div>
+
+          <div class="p-5">
+            <div class="text-[22px] font-extrabold tracking-tight text-[#111827]">
+              245000 с.
+            </div>
+            <h2 class="text-[15px] font-medium text-[#1F2937] mt-1">
+              Toyota Camry, 2019
+            </h2>
+            <p class="text-[13px] text-[#9CA3AF] mt-1">
+              62000 км · Бензин
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden shadow-[0_2px_10px_rgba(17,24,39,0.04)] hover:shadow-[0_10px_25px_rgba(17,24,39,0.08)] transition-shadow duration-200 cursor-pointer group">
+          <div class="relative h-[220px] w-full bg-gray-200 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1623869675781-80aa31012a5a?auto=format&fit=crop&w=900&q=80"
+              alt="Toyota Corolla, 2021"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <span class="absolute top-3.5 left-3.5 bg-[#10B981] text-white text-[12px] font-semibold px-3 py-1 rounded-md shadow-xs">
+              Проверен
+            </span>
+          </div>
+
+          <div class="p-5">
+            <div class="text-[22px] font-extrabold tracking-tight text-[#111827]">
+              228000 с.
+            </div>
+            <h2 class="text-[15px] font-medium text-[#1F2937] mt-1">
+              Toyota Corolla, 2021
+            </h2>
+            <p class="text-[13px] text-[#9CA3AF] mt-1">
+              31000 км · Гибрид
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden shadow-[0_2px_10px_rgba(17,24,39,0.04)] hover:shadow-[0_10px_25px_rgba(17,24,39,0.08)] transition-shadow duration-200 cursor-pointer group">
+          <div class="relative h-[220px] w-full bg-gray-200 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80"
+              alt="Chevrolet Camaro, 2018"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div class="p-5">
+            <div class="text-[22px] font-extrabold tracking-tight text-[#2563EB]">
+              176000 с.
+            </div>
+            <h2 class="text-[15px] font-medium text-[#1F2937] mt-1">
+              Chevrolet Camaro, 2018
+            </h2>
+            <p class="text-[13px] text-[#9CA3AF] mt-1">
+              88000 км · Бензин
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <footer class="py-8 text-center text-[13px] text-[#9CA3AF]">
+    © 2026 Mosh.tj — объявления о продаже автомобилей
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectiCode — Учись программировать</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f8fa;
+            color: #202a35;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #16a36a;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #424b57;
+        }
+
+        nav a:hover {
+            color: #16a36a;
+        }
+
+        .login {
+            background: #18252d;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 75px 20px 45px;
+        }
+
+        .tag {
+            color: #15945e;
+            background: #e0f6e9;
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        h1 span {
+            color: #15945e;
+        }
+
+        .hero p {
+            color: #687582;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        .game {
+            max-width: 700px;
+            margin: 10px auto 70px;
+            padding: 30px;
+            background: white;
+            border: 1px solid #e4e8ec;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 30px #00000008;
+        }
+
+        .game h2 {
+            margin-bottom: 12px;
+        }
+
+        .game p {
+            color: #687582;
+            margin-bottom: 20px;
+        }
+
+        .numbers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 7px;
+            margin: 20px 0;
+        }
+
+        .numbers button {
+            width: 43px;
+            height: 40px;
+            background: #f0f3f5;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .numbers button:hover {
+            background: #d5f5e2;
+        }
+
+        .numbers button:disabled {
+            color: white;
+            background: #15945e;
+            cursor: default;
+        }
+
+        #message {
+            font-weight: bold;
+            color: #15945e;
+            min-height: 24px;
+        }
+
+        .section {
+            padding: 55px 8%;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: #687582;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 27px;
+            border: 1px solid #e4e8ec;
+            border-radius: 13px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #15945e;
+        }
+
+        .emoji {
+            font-size: 32px;
+            margin-bottom: 17px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #687582;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            color: #15945e;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .progress {
+            background: white;
+            padding: 30px;
+            border-radius: 13px;
+            border: 1px solid #e4e8ec;
+            max-width: 600px;
+        }
+
+        .progress-bar {
+            background: #e8ecef;
+            height: 12px;
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        #bar {
+            height: 100%;
+            width: 0%;
+            background: #15945e;
+            transition: 0.3s;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            color: #687582;
+            background: white;
+            border-top: 1px solid #e4e8ec;
+        }
+
+        body.dark {
+            background: #111a20;
+            color: #f1f5f7;
+        }
+
+        body.dark header,
+        body.dark .game,
+        body.dark .card,
+        body.dark .progress,
+        body.dark footer {
+            background: #1c282f;
+            color: #f1f5f7;
+            border-color: #34434b;
+        }
+
+        body.dark nav a,
+        body.dark .game p,
+        body.dark .card p,
+        body.dark .description {
+            color: #bdc8ce;
+        }
+
+        body.dark .numbers button {
+            background: #34434b;
+            color: white;
+        }
+
+        body.dark .numbers button:disabled {
+            background: #15945e;
+        }
+
+        @media (max-width: 750px) {
+            header {
+                flex-wrap: wrap;
+                gap: 18px;
+                padding: 20px;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .game {
+                margin: 10px 15px 50px;
+                padding: 20px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">electi<span>code</span></div>
+
+        <nav>
+            <a href="#learn">Обучение</a>
+            <a href="#practice">Практика</a>
+            <a href="#contests">Соревнования</a>
+            <a href="#progress">Прогресс</a>
+        </nav>
+
+        <button class="login" onclick="changeTheme()">
+            🌙 Тема
+        </button>
+    </header>
+
+    <section class="hero">
+        <div class="tag">💻 Программирование для школьников</div>
+
+        <h1>Решай задачи.<br>Пиши код.<br><span>Побеждай на олимпиадах.</span></h1>
+
+        <p>
+            Изучай программирование, развивай логику<br>
+            и готовься к олимпиадам по информатике.
+        </p>
+    </section>
+
+    <section class="game">
+        <h2>🎯 Найди спрятанное число!</h2>
+        <p>Я загадал число от 1 до 100. Попробуй угадать его.</p>
+
+        <div class="numbers" id="numbers"></div>
+
+        <p id="message">Выбери любое число!</p>
+        <p>Попыток: <span id="attempts">0</span></p>
+
+        <button class="login" onclick="restartGame()">
+            Играть заново
+        </button>
+    </section>
+
+    <section class="section" id="learn">
+        <h2>Всё для обучения</h2>
+        <p class="description">
+            Развивай навыки программирования шаг за шагом.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <div class="emoji">📚</div>
+                <h3>Обучение</h3>
+                <p>Изучай алгоритмы и структуры данных от простого к сложному.</p>
+                <a href="#progress">Начать учиться →</a>
+            </div>
+
+            <div class="card" id="practice">
+                <div class="emoji">🧩</div>
+                <h3>Практика</h3>
+                <p>Решай задачи, тренируй логику и проверяй свои знания.</p>
+                <a href="#game" onclick="restartGame()">Решить задачу →</a>
+            </div>
+
+            <div class="card" id="contests">
+                <div class="emoji">🏆</div>
+                <h3>Соревнования</h3>
+                <p>Проверяй свои знания и готовься к олимпиадам.</p>
+                <a href="#progress">Мой результат →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="progress">
+        <h2>📈 Твой прогресс</h2>
+        <p class="description">Следи за своими результатами в игре.</p>
+
+        <div class="progress">
+            <h3>Угаданные числа</h3>
+            <p>Решено: <span id="solved">0</span> из 1</p>
+
+            <div class="progress-bar">
+                <div id="bar"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>electicode</h3>
+        <p>Учись программировать и достигай новых целей!</p>
+        <p>© 2026 Учебный проект</p>
+    </footer>
+
+    <script>
+       
+/* ==========================================
+   ELECTICODE ULTRA ✦ FUTURE OF LEARNING
+========================================== */
+
+
+/* ==========================================================
+   🌌 ELECTICODE GALAXY ULTIMATE
+   Космическая платформа для изучения программирования
+   HTML + CSS создаются из JavaScript
+   ========================================================== */
+
+(() => {
+  "use strict";
+
+  if (window.galaxyUltimateStarted) return;
+  window.galaxyUltimateStarted = true;
+
+  const $ = (selector, root = document) =>
+    root.querySelector(selector);
+
+  const $$ = (selector, root = document) =>
+    [...root.querySelectorAll(selector)];
+
+  const save = {
+    get(key, fallback) {
+      try {
+        const value = localStorage.getItem("galaxyUltimate_" + key);
+        return value === null ? fallback : JSON.parse(value);
+      } catch {
+        return fallback;
+      }
+    },
+
+    set(key, value) {
+      try {
+        localStorage.setItem(
+          "galaxyUltimate_" + key,
+          JSON.stringify(value)
+        );
+      } catch {}
+    }
+  };
+
+  const state = {
+    xp: save.get("xp", 0),
+    coins: save.get("coins", 0),
+    completed: save.get("completed", []),
+    achievements: save.get("achievements", []),
+    notes: save.get("notes", ""),
+    theme: save.get("theme", "dark"),
+    sound: save.get("sound", true),
+    streak: save.get("streak", 0),
+    lastVisit: save.get("lastVisit", ""),
+    timerSeconds: 25 * 60,
+    timerRunning: false,
+    gameNumber: randomNumber(),
+    gameAttempts: 0,
+    gameWins: save.get("gameWins", 0)
+  };
+
+  function randomNumber() {
+    return Math.floor(Math.random() * 100) + 1;
+  }
+
+  function persist() {
+    Object.keys(state).forEach(key => {
+      if (
+        key !== "timerSeconds" &&
+        key !== "timerRunning" &&
+        key !== "gameNumber" &&
+        key !== "gameAttempts"
+      ) {
+        save.set(key, state[key]);
+      }
+    });
+  }
+
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[char]);
+  }
+
+  // ----------------------------------------------------------
+  // 1. ОФОРМЛЕНИЕ
+  // ----------------------------------------------------------
+
+  const style = document.createElement("style");
+  style.id = "galaxy-ultimate-style";
+
+  style.textContent = `
+    :root {
+      color-scheme: dark;
+      --bg: #070817;
+      --panel: rgba(19, 23, 54, .88);
+      --panel2: rgba(31, 36, 77, .88);
+      --text: #f5f3ff;
+      --muted: #aaa9ce;
+      --purple: #a78bfa;
+      --blue: #38bdf8;
+      --pink: #f472b6;
+      --green: #4ade80;
+      --border: rgba(167, 139, 250, .24);
+      --shadow: 0 20px 60px rgba(0, 0, 0, .25);
+    }
+
+    body.galaxy-light {
+      color-scheme: light;
+      --bg: #f4f2ff;
+      --panel: rgba(255,255,255,.92);
+      --panel2: #ecebff;
+      --text: #242044;
+      --muted: #686484;
+      --border: rgba(109, 40, 217, .2);
+      --shadow: 0 15px 40px rgba(65, 48, 130, .12);
+    }
+
+    body.galaxy-ultimate {
+      margin: 0 !important;
+      min-height: 100vh;
+      color: var(--text) !important;
+      background:
+        radial-gradient(ellipse at 10% 0%, #512da855, transparent 32%),
+        radial-gradient(ellipse at 95% 25%, #0369a155, transparent 30%),
+        radial-gradient(ellipse at 55% 100%, #83184333, transparent 40%),
+        var(--bg) !important;
+      background-attachment: fixed !important;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      transition: background .3s, color .3s;
+    }
+
+    .galaxy-ultimate *, .galaxy-ultimate *::before,
+    .galaxy-ultimate *::after {
+      box-sizing: border-box;
+    }
+
+    #gu-stars {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    #gu-app {
+      width: min(1450px, 100%);
+      margin: auto;
+      padding: 20px clamp(14px, 3vw, 38px) 70px;
+    }
+
+    #gu-app button, #gu-app input,
+    #gu-app textarea, #gu-app select {
+      font: inherit;
+    }
+
+    #gu-app button {
+      cursor: pointer;
+    }
+
+    #gu-progress-top {
+      position: fixed;
+      z-index: 99999;
+      left: 0;
+      top: 0;
+      height: 4px;
+      width: 0;
+      background: linear-gradient(90deg, #a78bfa, #38bdf8, #f472b6);
+      box-shadow: 0 0 18px #a78bfa;
+    }
+
+    .gu-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0 24px;
+      flex-wrap: wrap;
+    }
+
+    .gu-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 21px;
+      font-weight: 950;
+      letter-spacing: -.6px;
+    }
+
+    .gu-logo {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      font-size: 25px;
+      background: linear-gradient(135deg, #8b5cf6, #0891b2);
+      box-shadow: 0 0 30px #8b5cf655;
+    }
+
+    .gu-muted { color: var(--muted); }
+
+    .gu-nav-actions, .gu-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .gu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 11px 16px;
+      color: var(--text);
+      background: var(--panel2);
+      transition: transform .2s, filter .2s, box-shadow .2s;
+    }
+
+    .gu-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.15);
+    }
+
+    .gu-btn:active { transform: scale(.97); }
+
+    .gu-primary {
+      border: none;
+      color: white;
+      font-weight: 800;
+      background: linear-gradient(110deg, #7c3aed, #2563eb, #0891b2);
+      box-shadow: 0 8px 28px #6366f144;
+    }
+
+    .gu-hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(25px, 5vw, 65px);
+      border-radius: 32px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(120deg, #6d28d944, #0369a133, #db277733),
+        var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .gu-hero::after {
+      content: "✦";
+      position: absolute;
+      right: 7%;
+      top: 8%;
+      font-size: clamp(70px, 12vw, 180px);
+      color: #c4b5fd;
+      opacity: .3;
+      animation: gu-float 5s ease-in-out infinite;
+    }
+
+    .gu-eyebrow {
+      color: var(--blue);
+      font-weight: 850;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    .gu-hero h1 {
+      max-width: 800px;
+      font-size: clamp(36px, 7vw, 78px);
+      line-height: 1.06;
+      letter-spacing: -2.5px;
+      margin: 18px 0;
+    }
+
+    .gu-gradient-text {
+      background: linear-gradient(90deg, #c4b5fd, #7dd3fc, #f9a8d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .gu-hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .gu-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 22px 0 40px;
+    }
+
+    .gu-stat, .gu-panel, .gu-course, .gu-achievement {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(15px);
+    }
+
+    .gu-stat { padding: 20px; }
+    .gu-stat-icon { font-size: 25px; }
+    .gu-stat-value { font-size: 30px; font-weight: 950; }
+    .gu-stat-label { font-size: 13px; color: var(--muted); }
+
+    .gu-section { margin-top: 42px; scroll-margin-top: 25px; }
+
+    .gu-section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .gu-section h2 {
+      font-size: clamp(24px, 4vw, 34px);
+      letter-spacing: -1px;
+      margin: 0;
+    }
+
+    .gu-panel { padding: clamp(18px, 3vw, 30px); }
+
+    .gu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .gu-course {
+      padding: 23px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .gu-course:hover {
+      transform: translateY(-6px);
+      border-color: var(--blue);
+    }
+
+    .gu-course-icon { font-size: 36px; }
+    .gu-course h3 { margin: 10px 0 5px; }
+    .gu-course p { color: var(--muted); min-height: 48px; }
+
+    .gu-tag {
+      display: inline-block;
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: var(--blue);
+      font-size: 12px;
+      margin: 5px 4px 5px 0;
+    }
+
+    .gu-input, .gu-textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 13px 15px;
+      color: var(--text);
+      background: var(--panel2);
+      outline: none;
+    }
+
+    .gu-input:focus, .gu-textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px #38bdf822;
+    }
+
+    .gu-textarea {
+      min-height: 180px;
+      resize: vertical;
+      font-family: Consolas, monospace !important;
+    }
+
+    .gu-progress {
+      height: 12px;
+      overflow: hidden;
+      background: var(--panel2);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .gu-progress > div {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #8b5cf6, #38bdf8, #4ade80);
+      border-radius: inherit;
+      transition: width .5s;
+    }
+
+    .gu-mission {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 16px;
+      border-radius: 17px;
+      background: var(--panel2);
+      margin: 12px 0;
+    }
+
+    .gu-mission-icon { font-size: 30px; }
+    .gu-mission-body { flex: 1; min-width: 0; }
+    .gu-mission-body p { margin: 3px 0; color: var(--muted); }
+
+    .gu-achievements {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .gu-achievement { padding: 17px; }
+    .gu-achievement.locked { opacity: .55; filter: grayscale(.8); }
+    .gu-achievement-icon { font-size: 30px; }
+
+    .gu-code-output {
+      min-height: 60px;
+      padding: 16px;
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: #030712;
+      color: #86efac;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: Consolas, monospace;
+    }
+
+    .gu-memory {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .gu-footer {
+      text-align: center;
+      padding: 50px 10px 20px;
+      color: var(--muted);
+    }
+
+    #gu-toast {
+      position: fixed;
+      z-index: 100000;
+      right: 20px;
+      bottom: 20px;
+      max-width: calc(100vw - 40px);
+      padding: 15px 20px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--panel2);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(15px);
+      transition: .25s;
+      pointer-events: none;
+    }
+
+    #gu-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #gu-confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99998;
+      overflow: hidden;
+    }
+
+    .gu-confetti-piece {
+      position: absolute;
+      top: -20px;
+      width: 8px;
+      height: 13px;
+      border-radius: 2px;
+      animation: gu-fall 2.8s linear forwards;
+    }
+
+    @keyframes gu-float {
+      0%,100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-14px) rotate(12deg); }
+    }
+
+    @keyframes gu-fall {
+      to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    @media (max-width: 900px) {
+      .gu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gu-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      #gu-app { padding: 12px 12px 45px; }
+      .gu-grid, .gu-achievements, .gu-memory {
+        grid-template-columns: 1fr;
+      }
+      .gu-hero { border-radius: 22px; }
+      .gu-hero h1 { letter-spacing: -1.5px; }
+      .gu-stats { gap: 9px; }
+      .gu-stat { padding: 13px; }
+      .gu-stat-value { font-size: 25px; }
+      .gu-nav { align-items: flex-start; }
+      .gu-nav-actions { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  `;
+
+  document.head.appendChild(style);
+  document.body.classList.add("galaxy-ultimate");
+
+  // ----------------------------------------------------------
+  // 2. СОЗДАЁМ СТРАНИЦУ
+  // ----------------------------------------------------------
+
+  const oldApp = $("#gu-app");
+  if (oldApp) oldApp.remove();
+
+  const app = document.createElement("div");
+  app.id = "gu-app";
+
+  app.innerHTML = `
+    <div id="gu-progress-top"></div>
+    <canvas id="gu-stars" aria-hidden="true"></canvas>
+
+    <header class="gu-nav">
+      <div class="gu-brand">
+        <div class="gu-logo">🌌</div>
+        <div>
+          ELECTICODE
+          <div class="gu-muted" style="font-size:11px;letter-spacing:2px">
+            GALAXY ULTIMATE
+          </div>
+        </div>
+      </div>
+
+      <div class="gu-nav-actions">
+        <button class="gu-btn" id="gu-theme">🌙 Тема</button>
+        <button class="gu-btn" data-go="gu-missions">🎯 Миссии</button>
+        <button class="gu-btn" data-go="gu-playground">💻 Код</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="gu-hero">
+        <div class="gu-eyebrow">✦ ТВОЯ ВСЕЛЕННАЯ ВОЗМОЖНОСТЕЙ</div>
+        <h1>Будущее создают те, кто <span class="gu-gradient-text">пишет код.</span></h1>
+        <p>
+          Исследуй JavaScript, выполняй задания, зарабатывай опыт,
+          открывай достижения и превращай обучение в настоящее приключение.
+        </p>
+        <div class="gu-row">
+          <button class="gu-btn gu-primary" data-go="gu-courses">
+            🚀 Начать обучение
+          </button>
+          <button class="gu-btn" data-go="gu-playground">
+            ⚡ Открыть редактор
+          </button>
+        </div>
+        <p class="gu-muted" style="font-size:12px;margin-top:25px">
+          ✨ LEARN · BUILD · LEVEL UP
+        </p>
+      </section>
+
+      <section class="gu-stats" aria-label="Статистика">
+        <div class="gu-stat">
+          <div class="gu-stat-icon">💎</div>
+          <div class="gu-stat-value" id="gu-xp">0</div>
+          <div class="gu-stat-label">Очки опыта XP</div>
+        </div>
+        <div class="gu-stat">
+          <div class="gu-stat-icon">🚀</div>
+          <div class="gu-stat-value" id="gu-level">1</div>
+          <div class="gu-stat-label">Твой уровень</div>
+        </div>
+        <div class="gu-stat">
+          <div class="gu-stat-icon">🪙</div>
+          <div class="gu-stat-value" id="gu-coins">0</div>
+          <div class="gu-stat-label">Космические монеты</div>
+        </div>
+        <div class="gu-stat">
+          <div class="gu-stat-icon">🏆</div>
+          <div class="gu-stat-value" id="gu-wins">0</div>
+          <div class="gu-stat-label">Победы в игре</div>
+        </div>
+      </section>
+
+      <section class="gu-section" id="gu-profile">
+        <div class="gu-section-head">
+          <div>
+            <div class="gu-eyebrow">YOUR PROGRESS</div>
+            <h2>💜 Твой профиль</h2>
+          </div>
+          <span class="gu-tag" id="gu-rank">🌱 Новичок</span>
+        </div>
+
+        <div class="gu-panel">
+          <div class="gu-row" style="justify-content:space-between">
+            <strong id="gu-level-title">Уровень 1</strong>
+            <span class="gu-muted" id="gu-xp-needed">0 / 100 XP</span>
+          </div>
+          <div class="gu-progress" style="margin:14px 0">
+            <div id="gu-level-bar"></div>
+          </div>
+          <p class="gu-muted" id="gu-level-message">
+            Выполняй задания, чтобы получить следующий уровень.
+          </p>
+        </div>
+      </section>
+
+      <section class="gu-section" id="gu-courses">
+        <div class="gu-section-head">
+          <div>
+            <div class="gu-eyebrow">KNOWLEDGE BASE</div>
+            <h2>🪐 Планеты обучения</h2>
+          </div>
+        </div>
+
+        <input
+          id="gu-search"
+          class="gu-input"
+          placeholder="🔍 Найти тему: массивы, функции, объекты..."
+          aria-label="Поиск тем"
+        >
+
+        <div class="gu-grid" id="gu-course-grid" style="margin-top:18px"></div>
+        <p class="gu-muted" id="gu-no-results" hidden>
+          Ничего не найдено. Попробуй другое слово.
+        </p>
+      </section>
+
+      <section class="gu-section" id="gu-missions">
+        <div class="gu-section-head">
+          <div>
+            <div class="gu-eyebrow">DAILY QUESTS</div>
+            <h2>🎯 Центр миссий</h2>
+          </div>
+          <span class="gu-tag">+ XP за задания</span>
+        </div>
+        <div class="gu-panel" id="gu-mission-list"></div>
+      </section>
+
+      <section class="gu-section" id="gu-playground">
+        <div class="gu-section-head">
+          <div>
+            <div class="gu-eyebrow">CODE LAB</div>
+            <h2>💻 JavaScript Playground</h2>
+          </div>
+        </div>
+
+        <div class="gu-panel">
+          <p class="gu-muted">
+            Напиши JavaScript и нажми «Запустить». Для безопасности
+            здесь разрешён только ограниченный набор простых выражений.
+          </p>
+
+          <textarea
+            class="gu-textarea"
+            id="gu-code"
+            spellcheck="false"
+            aria-label="Редактор JavaScript"
+          >console.log(2 + 2);
+console.log("Привет, Galaxy!");</textarea>
+
+          <div class="gu-row" style="margin-top:12px">
+            <button class="gu-btn gu-primary" id="gu-run-code">
+              ▶ Запустить код
+            </button>
+            <button class="gu-btn" id="gu-clear-code">
+              🧹 Очистить вывод
+            </button>
+            <button class="gu-btn" id="gu-reset-code">
+              ↩ Вернуть пример
+            </button>
+          </div>
+
+          <div class="gu-code-output" id="gu-output" aria-live="polite">
+            Здесь появится результат...
+          </div>
+        </div>
+      </section>
+
+      <section class="gu-section" id="gu-game">
+        <div class="gu-section-head">
+          <div>
+            <div class="gu-eyebrow">ARCADE ZONE</div>
+            <h2>🎮 Космическая игра</h2>
+          </div>
+        </div>
+
+        <div class="gu-panel">
+          <h3>🔮 Угадай секретное число</h3>
+          <p class="gu-muted">
+            Компьютер загадал число от 1 до 100. Попробуй найти его!
+          </p>
+          <form id="gu-guess-form" class="gu-row">
+            <input
+              id="gu-guess"
+              class="gu-input"
+              style="max-width:220px"
+              type="number"
+              min="1"
+              max="100"
+              required
+              placeholder="Твоё число"
+            >
+            <button class="gu-btn gu-primary" type="submit">
+              🚀 Проверить
+            </button>
+            <button class="gu-btn" type="button" id="gu-new-game">
+              🔄 Новая игра
+            </button>
+          </form>
+          <h3 id="gu-game-message" aria-live="polite">
+            Готов к запуску? 🌠
+          </h3>
+          <p class="gu-muted" id="gu-attempts">Попыток: 0</p>
+        </div>
+      </section>
+
+      <section class="gu-section" id="gu-achievements-section">
+        <div class="gu-section-head">
+          <div>
+            <div class="gu-eyebrow">HALL OF FAME</div>
+            <h2>🏆 Зал достижений</h2>
+          </div>
+        </div>
+        <div class="gu-achievements" id="gu-achievements"></div>
+      </section>
+
+      <section class="gu-section" id="gu-shop">
+        <div class="gu-section-head">
+          <div>
+            <div class="gu-eyebrow">REWARD STATION</div>
+            <h2>🛍️ Магазин наград</h2>
+          </div>
+          <span class="gu-tag">🪙 <span id="gu-shop-coins">0</span></span>
+        </div>
+        <div class="gu-grid" id="gu-shop-grid"></div>
+      </section>
+
+      <section class="gu-section" id="gu-focus">
+        <div class="gu-section-head">
+          <div>
+            <div class="gu-eyebrow">DEEP FOCUS</div>
+            <h2>⏳ Таймер учёбы</h2>
+          </div>
+        </div>
+        <div class="gu-panel" style="text-align:center">
+          <div style="font-size:clamp(48px,10vw,85px);font-weight:950"
+               id="gu-timer">25:00</div>
+          <p class="gu-muted">Учись 25 минут, затем сделай перерыв.</p>
+          <div class="gu-row" style="justify-content:center">
+            <button class="gu-btn gu-primary" id="gu-timer-start">
+              ▶ Старт
+            </button>
+            <button class="gu-btn" id="gu-timer-pause">⏸ Пауза</button>
+            <button class="gu-btn" id="gu-timer-reset">↩ Сбросить</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="gu-section" id="gu-notes">
+        <div class="gu-section-head">
+          <div>
+            <div class="gu-eyebrow">PERSONAL KNOWLEDGE</div>
+            <h2>📝 Мои заметки</h2>
+          </div>
+        </div>
+        <div class="gu-panel">
+          <textarea
+            class="gu-textarea"
+            id="gu-notes-input"
+            placeholder="Запиши сюда правила, идеи и важные примеры..."
+          ></textarea>
+          <div class="gu-row" style="margin-top:12px">
+            <button class="gu-btn gu-primary" id="gu-save-notes">
+              💾 Сохранить заметки
+            </button>
+            <button class="gu-btn" id="gu-clear-notes">
+              🧹 Очистить
+            </button>
+          </div>
+          <p class="gu-muted" id="gu-notes-status"></p>
+        </div>
+      </section>
+
+      <section class="gu-section" id="gu-settings">
+        <div class="gu-section-head">
+          <div>
+            <div class="gu-eyebrow">CONTROL CENTER</div>
+            <h2>⚙️ Настройки</h2>
+          </div>
+        </div>
+        <div class="gu-panel">
+          <p>🌗 Оформление сайта</p>
+          <button class="gu-btn" id="gu-theme-settings">
+            Переключить тему
+          </button>
+          <hr style="border-color:var(--border);margin:24px 0">
+          <p>📦 Сброс локального прогресса</p>
+          <p class="gu-muted">
+            Это удалит сохранённые XP, монеты, достижения и заметки
+            этой платформы в данном браузере.
+          </p>
+          <button class="gu-btn" id="gu-reset-all">
+            🗑️ Сбросить мой прогресс
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="gu-footer">
+      <div style="font-size:30px">🌌 🚀 💜</div>
+      <strong>ELECTICODE GALAXY ULTIMATE</strong>
+      <p>Твоя история программирования только начинается.</p>
+      <div class="gu-row" style="justify-content:center">
+        <button class="gu-btn" data-go="gu-profile">⬆️ Наверх</button>
+        <button class="gu-btn" data-go="gu-settings">⚙️ Настройки</button>
+      </div>
+    </footer>
+
+    <div id="gu-toast" role="status" aria-live="polite"></div>
+    <div id="gu-confetti" aria-hidden="true"></div>
+  `;
+
+  document.body.replaceChildren(app);
+
+  // ----------------------------------------------------------
+  // 3. ЗВЁЗДНОЕ НЕБО
+  // ----------------------------------------------------------
+
+  const canvas = $("#gu-stars");
+  const ctx = canvas.getContext("2d");
+  let stars = [];
+  let animationFrame = 0;
+
+  function resizeStars() {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = innerWidth * ratio;
+    canvas.height = innerHeight * ratio;
+    canvas.style.width = innerWidth + "px";
+    canvas.style.height = innerHeight + "px";
+
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+    stars = Array.from(
+      { length: Math.min(150, Math.floor(innerWidth / 8)) },
+      () => ({
+        x: Math.random() * innerWidth,
+        y: Math.random() * innerHeight,
+        size: Math.random() * 1.8 + .3,
+        speed: Math.random() * .25 + .05,
+        alpha: Math.random() * .65 + .2
+      })
+    );
+  }
+
+  function drawStars() {
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+    for (const star of stars) {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(220,225,255,${star.alpha})`;
+      ctx.fill();
+
+      star.y -= star.speed;
+
+      if (star.y < -3) {
+        star.y = innerHeight + 3;
+        star.x = Math.random() * innerWidth;
+      }
+    }
+
+    animationFrame = requestAnimationFrame(drawStars);
+  }
+
+  resizeStars();
+  drawStars();
+
+  window.addEventListener("resize", resizeStars);
+
+  // ----------------------------------------------------------
+  // 4. УВЕДОМЛЕНИЯ И ЭФФЕКТЫ
+  // ----------------------------------------------------------
+
+  let toastTimeout;
+
+  function toast(message) {
+    const element = $("#gu-toast");
+    element.textContent = message;
+    element.classList.add("show");
+
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(
+      () => element.classList.remove("show"),
+      2600
+    );
+  }
+
+  function celebrate() {
+    const area = $("#gu-confetti");
+    const colors = ["#a78bfa", "#38bdf8", "#f472b6", "#4ade80", "#facc15"];
+
+    for (let i = 0; i < 70; i++) {
+      const piece = document.createElement("i");
+      piece.className = "gu-confetti-piece";
+      piece.style.left = Math.random() * 100 + "%";
+      piece.style.background = colors[
+        Math.floor(Math.random() * colors.length)
+      ];
+      piece.style.animationDelay = Math.random() * .7 + "s";
+      piece.style.animationDuration = 1.7 + Math.random() * 1.7 + "s";
+
+      area.appendChild(piece);
+      setTimeout(() => piece.remove(), 4000);
+    }
+  }
+
+  function addXP(amount, message = "") {
+    const previousLevel = Math.floor(state.xp / 100) + 1;
+
+    state.xp += amount;
+    state.coins += Math.max(1, Math.floor(amount / 5));
+
+    persist();
+    renderStats();
+
+    const newLevel = Math.floor(state.xp / 100) + 1;
+
+    if (newLevel > previousLevel) {
+      celebrate();
+      toast(`🚀 Новый уровень: ${newLevel}!`);
+    } else {
+      toast(message || `✨ +${amount} XP!`);
+    }
+
+    checkAchievements();
+  }
+
+  // ----------------------------------------------------------
+  // 5. ПРОФИЛЬ И УРОВНИ
+  // ----------------------------------------------------------
+
+  function getRank(level) {
+    if (level >= 20) return "👑 Легенда кода";
+    if (level >= 15) return "🌌 Мастер галактики";
+    if (level >= 10) return "💎 Эксперт";
+    if (level >= 5) return "⚡ Продвинутый";
+    if (level >= 3) return "🚀 Исследователь";
+    return "🌱 Новичок";
+  }
+
+  function renderStats() {
+    const level = Math.floor(state.xp / 100) + 1;
+    const progress = state.xp % 100;
+
+    $("#gu-xp").textContent = state.xp;
+    $("#gu-level").textContent = level;
+    $("#gu-coins").textContent = state.coins;
+    $("#gu-wins").textContent = state.gameWins;
+    $("#gu-rank").textContent = getRank(level);
+    $("#gu-level-title").textContent = "Уровень " + level;
+    $("#gu-xp-needed").textContent = `${progress} / 100 XP`;
+    $("#gu-level-bar").style.width = progress + "%";
+    $("#gu-shop-coins").textContent = state.coins;
+
+    $("#gu-level-message").textContent =
+      `До уровня ${level + 1} осталось ${100 - progress} XP.`;
+  }
+
+  // ----------------------------------------------------------
+  // 6. КУРСЫ
+  // ----------------------------------------------------------
+
+  const courses = [
+    {
+      id: "variables",
+      icon: "📦",
+      title: "Переменные",
+      description: "Научись хранить информацию с помощью let и const.",
+      level: "Начальный",
+      tags: ["let", "const", "переменные"],
+      task: "Что создаёт const?"
+    },
+    {
+      id: "conditions",
+      icon: "🔀",
+      title: "Условия",
+      description: "Принимай решения в программе с помощью if и else.",
+      level: "Начальный",
+      tags: ["if", "else", "условия"],
+      task: "Как проверить условие?"
+    },
+    {
+      id: "loops",
+      icon: "🔁",
+      title: "Циклы",
+      description: "Повторяй действия с помощью for и while.",
+      level: "Начальный",
+      tags: ["for", "while", "циклы"],
+      task: "Для чего нужен цикл?"
+    },
+    {
+      id: "functions",
+      icon: "⚙️",
+      title: "Функции",
+      description: "Создавай собственные команды и возвращай результаты.",
+      level: "Средний",
+      tags: ["function", "return", "arrow"],
+      task: "Что делает return?"
+    },
+    {
+      id: "arrays",
+      icon: "🧩",
+      title: "Массивы",
+      description: "Храни много значений в одном списке.",
+      level: "Средний",
+      tags: ["array", "map", "filter"],
+      task: "Как получить первый элемент?"
+    },
+    {
+      id: "objects",
+      icon: "🪐",
+      title: "Объекты",
+      description: "Объединяй связанные данные в удобную структуру.",
+      level: "Средний",
+      tags: ["object", "key", "value"],
+      task: "Как обратиться к свойству?"
+    },
+    {
+      id: "strings",
+      icon: "🔤",
+      title: "Строки",
+      description: "Работай с текстом, символами и шаблонными строками.",
+      level: "Начальный",
+      tags: ["string", "slice", "trim"],
+      task: "Что возвращает length?"
+    },
+    {
+      id: "dom",
+      icon: "🖥️",
+      title: "DOM",
+      description: "Изменяй HTML-страницу через JavaScript.",
+      level: "Продвинутый",
+      tags: ["dom", "querySelector", "events"],
+      task: "Для чего нужен querySelector?"
+    },
+    {
+      id: "logic",
+      icon: "🧠",
+      title: "Логика",
+      description: "Развивай алгоритмическое мышление и решай задачи.",
+      level: "Продвинутый",
+      tags: ["logic", "algorithm", "задачи"],
+      task: "Как сравнить два числа?"
+    }
+  ];
+
+  function renderCourses(filter = "") {
+    const grid = $("#gu-course-grid");
+    const query = filter.toLowerCase().trim();
+
+    const filtered = courses.filter(course => {
+      const text = [
+        course.title,
+        course.description,
+        course.level,
+        ...course.tags
+      ].join(" ").toLowerCase();
+
+      return text.includes(query);
+    });
+
+    grid.innerHTML = filtered.map(course => {
+      const done = state.completed.includes(course.id);
+
+      return `
+        <article class="gu-course">
+          <div class="gu-course-icon">${course.icon}</div>
+          <span class="gu-tag">${course.level}</span>
+          ${done ? '<span class="gu-tag">✅ Пройдено</span>' : ""}
+          <h3>${escapeHTML(course.title)}</h3>
+          <p>${escapeHTML(course.description)}</p>
+          <div>
+            ${course.tags.map(tag =>
+              `<span class="gu-tag">${escapeHTML(tag)}</span>`
+            ).join("")}
+          </div>
+          <button
+            class="gu-btn ${done ? "" : "gu-primary"}"
+            data-course="${course.id}"
+            style="margin-top:15px;width:100%"
+          >
+            ${done ? "🔁 Повторить тему" : "✨ Изучить тему"}
+          </button>
+        </article>
+      `;
+    }).join("");
+
+    $("#gu-no-results").hidden = filtered.length !== 0;
+  }
+
+  $("#gu-search").addEventListener("input", event => {
+    renderCourses(event.target.value);
+  });
+
+  $("#gu-course-grid").addEventListener("click", event => {
+    const button = event.target.closest("[data-course]");
+    if (!button) return;
+
+    const course = courses.find(item => item.id === button.dataset.course);
+    if (!course) return;
+
+    const answer = prompt(
+      `${course.icon} ${course.title}\n\n` +
+      `${course.description}\n\n` +
+      `Мини-вопрос: ${course.task}\n\n` +
+      "Нажми OK, если хочешь отметить тему как изученную."
+    );
+
+    if (answer === null) return;
+
+    if (!state.completed.includes(course.id)) {
+      state.completed.push(course.id);
+      persist();
+      addXP(25, "📚 Тема завершена! +25 XP");
+    } else {
+      toast("Ты уже изучил эту тему. Отличная работа!");
+    }
+
+    renderCourses($("#gu-search").value);
+    renderMissions();
+  });
+
+  // ----------------------------------------------------------
+  // 7. ЕЖЕДНЕВНЫЕ МИССИИ
+  // ----------------------------------------------------------
+
+  function todayKey() {
+    const now = new Date();
+    return [
+      now.getFullYear(),
+      String(now.getMonth() + 1).padStart(2, "0"),
+      String(now.getDate()).padStart(2, "0")
+    ].join("-");
+  }
+
+  function updateStreak() {
+    const today = todayKey();
+
+    if (state.lastVisit !== today) {
+      if (state.lastVisit) {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        const previousKey = [
+          yesterday.getFullYear(),
+          String(yesterday.getMonth() + 1).padStart(2, "0"),
+          String(yesterday.getDate()).padStart(2, "0")
+        ].join("-");
+
+        state.streak =
+          state.lastVisit === previousKey ? state.streak + 1 : 1;
+      } else {
+        state.streak = 1;
+      }
+
+      state.lastVisit = today;
+      persist();
+    }
+  }
+
+  const missionDefinitions = [
+    {
+      id: "learn",
+      icon: "📚",
+      title: "Исследователь знаний",
+      description: "Изучи хотя бы одну тему.",
+      reward: 30,
+      done: () => state.completed.some(id => {
+        const item = save.get("missionCompletedToday", {});
+        return item[todayKey()]?.includes(id);
+      })
+    },
+    {
+      id: "play",
+      icon: "🎮",
+      title: "Аркадный чемпион",
+      description: "Выиграй одну космическую игру.",
+      reward: 20,
+      done: () => {
+        const data = save.get("dailyWins", {});
+        return Boolean(data[todayKey()]);
+      }
+    },
+    {
+      id: "code",
+      icon: "💻",
+      title: "Повелитель кода",
+      description: "Запусти пример в редакторе.",
+      reward: 20,
+      done: () => {
+        const data = save.get("dailyCode", {});
+        return Boolean(data[todayKey()]);
+      }
+    }
+  ];
+
+  function missionIsDone(mission) {
+    if (mission.id === "learn") {
+      const data = save.get("dailyLearn", {});
+      return Boolean(data[todayKey()]);
+    }
+    return mission.done();
+  }
+
+  function renderMissions() {
+    $("#gu-mission-list").innerHTML = missionDefinitions.map(mission => {
+      const done = missionIsDone(mission);
+
+      return `
+        <div class="gu-mission">
+          <div class="gu-mission-icon">${mission.icon}</div>
+          <div class="gu-mission-body">
+            <strong>${mission.title}</strong>
+            <p>${mission.description}</p>
+            <span class="gu-tag">+${mission.reward} XP</span>
+          </div>
+          <button
+            class="gu-btn ${done ? "" : "gu-primary"}"
+            data-mission="${mission.id}"
+            ${done ? "disabled" : ""}
+          >
+            ${done ? "✅ Готово" : "Начать"}
+          </button>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function finishMission(id) {
+    const mission = missionDefinitions.find(item => item.id === id);
+    if (!mission || missionIsDone(mission)) return;
+
+    const dataKey = {
+      learn: "dailyLearn",
+      play: "dailyWins",
+      code: "dailyCode"
+    }[id];
+
+    const data = save.get(dataKey, {});
+    data[todayKey()] = true;
+    save.set(dataKey, data);
+
+    addXP(mission.reward, "🎯 Миссия выполнена!");
+    renderMissions();
+  }
+
+  $("#gu-mission-list").addEventListener("click", event => {
+    const button = event.target.closest("[data-mission]");
+    if (!button) return;
+
+    const id = button.dataset.mission;
+
+    if (id === "learn") {
+      $("#gu-courses").scrollIntoView({ behavior: "smooth" });
+      toast("📚 Выбери тему и отметь её как изученную.");
+    } else if (id === "play") {
+      $("#gu-game").scrollIntoView({ behavior: "smooth" });
+      toast("🎮 Победи в космической игре!");
+    } else if (id === "code") {
+      $("#gu-playground").scrollIntoView({ behavior: "smooth" });
+      toast("💻 Запусти код в редакторе!");
+    }
+  });
+
+  function refreshMissions() {
+    renderMissions();
+
+    if (missionDefinitions.every(missionIsDone)) {
+      const dailyBonus = save.get("dailyBonus", {});
+      if (!dailyBonus[todayKey()]) {
+        dailyBonus[todayKey()] = true;
+        save.set("dailyBonus", dailyBonus);
+        addXP(50, "🌟 Все ежедневные миссии пройдены! +50 XP");
+        celebrate();
+      }
+    }
+  }
+
+  // ----------------------------------------------------------
+  // 8. БЕЗОПАСНЫЙ УПРОЩЁННЫЙ РЕДАКТОР
+  // ----------------------------------------------------------
+
+  function evaluateSimpleCode(source) {
+    const lines = source.split("\n");
+    const output = [];
+
+    for (const rawLine of lines) {
+      const line = rawLine.trim();
+
+      if (!line || line.startsWith("//")) continue;
+
+      const match = line.match(
+        /^console\.log\((.*)\);?$/
+      );
+
+      if (!match) {
+        throw new Error(
+          "Поддерживаются только строки console.log(...). " +
+          "Каждую команду пиши с новой строки."
+        );
+      }
+
+      const expression = match[1].trim();
+
+      // Разрешаем только строки, числа и простую арифметику.
+      if (/^(['"]).*\1$/.test(expression)) {
+        output.push(expression.slice(1, -1));
+        continue;
+      }
+
+      if (/^-?\d+(?:\.\d+)?$/.test(expression)) {
+        output.push(String(Number(expression)));
+        continue;
+      }
+
+      if (/^[\d\s.+*/%()-]+$/.test(expression)) {
+        // Не используем eval. Разбираем арифметику вручную.
+        const tokens = expression.match(
+          /\d+(?:\.\d+)?|[()+*/%-]|\s+/g
+        );
+
+        if (!tokens || tokens.join("").replace(/\s/g, "") !==
+            expression.replace(/\s/g, "")) {
+          throw new Error("Проверь математическое выражение.");
+        }
+
+        const clean = tokens.filter(token => !/^\s+$/.test(token));
+        let index = 0;
+
+        function parsePrimary() {
+          const token = clean[index++];
+
+          if (token === "(") {
+            const value = parseAddSub();
+            if (clean[index++] !== ")") {
+              throw new Error("Не хватает закрывающей скобки.");
+            }
+            return value;
+          }
+
+          if (token === "-") return -parsePrimary();
+
+          if (token === undefined || !/^\d/.test(token)) {
+            throw new Error("Ожидалось число.");
+          }
+
+          return Number(token);
+        }
+
+        function parseMulDiv() {
+          let value = parsePrimary();
+
+          while (["*", "/", "%"].includes(clean[index])) {
+            const operator = clean[index++];
+            const right = parsePrimary();
+
+            if ((operator === "/" || operator === "%") && right === 0) {
+              throw new Error("На ноль делить нельзя.");
+            }
+
+            if (operator === "*") value *= right;
+            if (operator === "/") value /= right;
+            if (operator === "%") value %= right;
+          }
+
+          return value;
+        }
+
+        function parseAddSub() {
+          let value = parseMulDiv();
+
+          while (["+", "-"].includes(clean[index])) {
+            const operator = clean[index++];
+            const right = parseMulDiv();
+
+            if (operator === "+") value += right;
+            if (operator === "-") value -= right;
+          }
+
+          return value;
+        }
+
+        const result = parseAddSub();
+
+        if (index !== clean.length || !Number.isFinite(result)) {
+          throw new Error("Не удалось вычислить выражение.");
+        }
+
+        output.push(String(result));
+        continue;
+      }
+
+      throw new Error(
+        "Этот редактор поддерживает console.log со строками " +
+        "и простыми математическими выражениями."
+      );
+    }
+
+    return output;
+  }
+
+  $("#gu-run-code").addEventListener("click", () => {
+    try {
+      const result = evaluateSimpleCode($("#gu-code").value);
+      $("#gu-output").textContent = result.length
+        ? result.join("\n")
+        : "Код выполнен. Вывода нет.";
+
+      const data = save.get("dailyCode", {});
+      const firstRunToday = !data[todayKey()];
+
+      if (firstRunToday) {
+        finishMission("code");
+      } else {
+        toast("⚡ Код выполнен!");
+      }
+
+      checkAchievements();
+    } catch (error) {
+      $("#gu-output").textContent = "Ошибка: " + error.message;
+    }
+  });
+
+  $("#gu-clear-code").addEventListener("click", () => {
+    $("#gu-output").textContent = "Вывод очищен.";
+  });
+
+  $("#gu-reset-code").addEventListener("click", () => {
+    $("#gu-code").value =
+      'console.log(2 + 2);\nconsole.log("Привет, Galaxy!");';
+    $("#gu-output").textContent = "Пример восстановлен.";
+  });
+
+  // ----------------------------------------------------------
+  // 9. ИГРА
+  // ----------------------------------------------------------
+
+  function resetGame() {
+    state.gameNumber = randomNumber();
+    state.gameAttempts = 0;
+
+    $("#gu-guess").value = "";
+    $("#gu-attempts").textContent = "Попыток: 0";
+    $("#gu-game-message").textContent = "Новое число загадано! 🌠";
+  }
+
+  $("#gu-guess-form").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const guess = Number($("#gu-guess").value);
+
+    if (!Number.isInteger(guess) || guess < 1 || guess > 100) {
+      toast("Введи целое число от 1 до 100.");
+      return;
+    }
+
+    state.gameAttempts++;
+    $("#gu-attempts").textContent =
+      "Попыток: " + state.gameAttempts;
+
+    if (guess < state.gameNumber) {
+      $("#gu-game-message").textContent = "⬆️ Загаданное число больше!";
+    } else if (guess > state.gameNumber) {
+      $("#gu-game-message").textContent = "⬇️ Загаданное число меньше!";
+    } else {
+      $("#gu-game-message").textContent =
+        `🎉 Победа! Ты угадал за ${state.gameAttempts} попыток!`;
+
+      state.gameWins++;
+      persist();
+      renderStats();
+      addXP(30, "🎮 Победа! +30 XP");
+      finishMission("play");
+      celebrate();
+      resetGame();
+      checkAchievements();
+      return;
+    }
+
+    $("#gu-guess").value = "";
+    $("#gu-guess").focus();
+  });
+
+  $("#gu-new-game").addEventListener("click", resetGame);
+
+  // ----------------------------------------------------------
+  // 10. ДОСТИЖЕНИЯ
+  // ----------------------------------------------------------
+
+  const achievementDefinitions = [
+    {
+      id: "firstxp",
+      icon: "✨",
+      title: "Первый шаг",
+      description: "Заработай первые 20 XP.",
+      check: () => state.xp >= 20
+    },
+    {
+      id: "level5",
+      icon: "🚀",
+      title: "Космический полёт",
+      description: "Достигни 5-го уровня.",
+      check: () => Math.floor(state.xp / 100) + 1 >= 5
+    },
+    {
+      id: "courses3",
+      icon: "📚",
+      title: "Книголюб",
+      description: "Изучи 3 темы.",
+      check: () => state.completed.length >= 3
+    },
+    {
+      id: "win1",
+      icon: "🎮",
+      title: "Первая победа",
+      description: "Выиграй в мини-игре.",
+      check: () => state.gameWins >= 1
+    },
+    {
+      id: "win5",
+      icon: "🏆",
+      title: "Чемпион аркады",
+      description: "Победи 5 раз.",
+      check: () => state.gameWins >= 5
+    },
+    {
+      id: "xp500",
+      icon: "💎",
+      title: "Сокровище знаний",
+      description: "Заработай 500 XP.",
+      check: () => state.xp >= 500
+    }
+  ];
+
+  function renderAchievements() {
+    $("#gu-achievements").innerHTML =
+      achievementDefinitions.map(item => {
+        const unlocked = state.achievements.includes(item.id);
+
+        return `
+          <article class="gu-achievement ${unlocked ? "" : "locked"}">
+            <div class="gu-achievement-icon">
+              ${unlocked ? item.icon : "🔒"}
+            </div>
+            <strong>${escapeHTML(item.title)}</strong>
+            <p class="gu-muted">${escapeHTML(item.description)}</p>
+            <span class="gu-tag">
+              ${unlocked ? "Разблокировано" : "Ещё впереди"}
+            </span>
+          </article>
+        `;
+      }).join("");
+  }
+
+  function checkAchievements() {
+    let changed = false;
+
+    for (const item of achievementDefinitions) {
+      if (
+        item.check() &&
+        !state.achievements.includes(item.id)
+      ) {
+        state.achievements.push(item.id);
+        changed = true;
+        toast("🏆 Достижение: " + item.title);
+        celebrate();
+      }
+    }
+
+    if (changed) persist();
+    renderAchievements();
+  }
+
+  // ----------------------------------------------------------
+  // 11. МАГАЗИН
+  // ----------------------------------------------------------
+
+  const shopItems = [
+    {
+      id: "purple",
+      icon: "💜",
+      title: "Фиолетовая энергия",
+      description: "Красивая коллекционная награда.",
+      price: 30
+    },
+    {
+      id: "rocket",
+      icon: "🚀",
+      title: "Космический корабль",
+      description: "Символ покорителя галактики.",
+      price: 60
+    },
+    {
+      id: "crown",
+      icon: "👑",
+      title: "Корона программиста",
+      description: "Для настоящего мастера кода.",
+      price: 100
+    }
+  ];
+
+  function renderShop() {
+    $("#gu-shop-grid").innerHTML = shopItems.map(item => `
+      <article class="gu-course">
+        <div class="gu-course-icon">${item.icon}</div>
+        <h3>${escapeHTML(item.title)}</h3>
+        <p>${escapeHTML(item.description)}</p>
+        <span class="gu-tag">🪙 ${item.price}</span>
+        <button
+          class="gu-btn gu-primary"
+          data-buy="${item.id}"
+          style="width:100%;margin-top:15px"
+        >
+          Купить награду
+        </button>
+      </article>
+    `).join("");
+  }
+
+  $("#gu-shop-grid").addEventListener("click", event => {
+    const button = event.target.closest("[data-buy]");
+    if (!button) return;
+
+    const item = shopItems.find(
+      product => product.id === button.dataset.buy
+    );
+
+    if (!item) return;
+
+    const owned = save.get("ownedRewards", []);
+
+    if (owned.includes(item.id)) {
+      toast("Эта награда уже есть в твоей коллекции!");
+      return;
+    }
+
+    if (state.coins < item.price) {
+      toast(`Не хватает ${item.price - state.coins} монет.`);
+      return;
+    }
+
+    state.coins -= item.price;
+    owned.push(item.id);
+    save.set("ownedRewards", owned);
+
+    persist();
+    renderStats();
+
+    button.textContent = "✅ Куплено";
+    toast("🎉 Награда добавлена в твою коллекцию!");
+  });
+
+  // ----------------------------------------------------------
+  // 12. ТАЙМЕР УЧЁБЫ
+  // ----------------------------------------------------------
+
+  let timerInterval = null;
+
+  function renderTimer() {
+    const minutes = Math.floor(state.timerSeconds / 60);
+    const seconds = state.timerSeconds % 60;
+
+    $("#gu-timer").textContent =
+      String(minutes).padStart(2, "0") + ":" +
+      String(seconds).padStart(2, "0");
+  }
+
+  $("#gu-timer-start").addEventListener("click", () => {
+    if (timerInterval !== null) return;
+
+    state.timerRunning = true;
+    $("#gu-timer-start").textContent = "▶ Продолжается";
+
+    timerInterval = setInterval(() => {
+      if (state.timerSeconds > 0) {
+        state.timerSeconds--;
+        renderTimer();
+      } else {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        state.timerRunning = false;
+
+        $("#gu-timer-start").textContent = "▶ Старт";
+        toast("🎉 Время учёбы закончилось! Сделай перерыв.");
+        celebrate();
+      }
+    }, 1000);
+  });
+
+  $("#gu-timer-pause").addEventListener("click", () => {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    state.timerRunning = false;
+    $("#gu-timer-start").textContent = "▶ Продолжить";
+    toast("⏸ Таймер поставлен на паузу.");
+  });
+
+  $("#gu-timer-reset").addEventListener("click", () => {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    state.timerRunning = false;
+    state.timerSeconds = 25 * 60;
+
+    $("#gu-timer-start").textContent = "▶ Старт";
+    renderTimer();
+    toast("⏳ Таймер сброшен.");
+  });
+
+  // ----------------------------------------------------------
+  // 13. ЗАМЕТКИ
+  // ----------------------------------------------------------
+
+  $("#gu-notes-input").value = state.notes;
+
+  $("#gu-save-notes").addEventListener("click", () => {
+    state.notes = $("#gu-notes-input").value;
+    persist();
+
+    $("#gu-notes-status").textContent =
+      "✅ Заметки сохранены в этом браузере.";
+
+    toast("📝 Заметки сохранены!");
+  });
+
+  $("#gu-clear-notes").addEventListener("click", () => {
+    if (!confirm("Точно очистить все заметки?")) return;
+
+    $("#gu-notes-input").value = "";
+    state.notes = "";
+    persist();
+
+    $("#gu-notes-status").textContent = "Заметки очищены.";
+    toast("🧹 Заметки очищены.");
+  });
+
+  // ----------------------------------------------------------
+  // 14. ТЕМЫ
+  // ----------------------------------------------------------
+
+  function applyTheme() {
+    document.body.classList.toggle(
+      "galaxy-light",
+      state.theme === "light"
+    );
+
+    $("#gu-theme").textContent =
+      state.theme === "light" ? "☀️ Светлая" : "🌙 Тёмная";
+  }
+
+  function toggleTheme() {
+    state.theme = state.theme === "dark" ? "light" : "dark";
+    save.set("theme", state.theme);
+    applyTheme();
+    toast("🎨 Тема изменена!");
+  }
+
+  $("#gu-theme").addEventListener("click", toggleTheme);
+  $("#gu-theme-settings").addEventListener("click", toggleTheme);
+
+  // ----------------------------------------------------------
+  // 15. ПРОКРУТКА И НАВИГАЦИЯ
+  // ----------------------------------------------------------
+
+  $$("[data-go]").forEach(button => {
+    button.addEventListener("click", () => {
+      const target = document.getElementById(button.dataset.go);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    const maxScroll =
+      document.documentElement.scrollHeight - innerHeight;
+
+    const percentage = maxScroll > 0
+      ? (scrollY / maxScroll) * 100
+      : 0;
+
+    $("#gu-progress-top").style.width = percentage + "%";
+  });
+
+  // ----------------------------------------------------------
+  // 16. СБРОС ПРОГРЕССА
+  // ----------------------------------------------------------
+
+  $("#gu-reset-all").addEventListener("click", () => {
+    const accepted = confirm(
+      "Сбросить XP, монеты, темы, достижения и заметки? " +
+      "Это действие нельзя отменить."
+    );
+
+    if (!accepted) return;
+
+    const prefix = "galaxyUltimate_";
+
+    try {
+      Object.keys(localStorage)
+        .filter(key => key.startsWith(prefix))
+        .forEach(key => localStorage.removeItem(key));
+    } catch {}
+
+    location.reload();
+  });
+
+  // ----------------------------------------------------------
+  // 17. ЗАПУСК ПЛАТФОРМЫ
+  // ----------------------------------------------------------
+
+  updateStreak();
+  applyTheme();
+  renderStats();
+  renderCourses();
+  renderMissions();
+  renderAchievements();
+  renderShop();
+  renderTimer();
+  checkAchievements();
+
+  console.log("🌌 ELECTICODE GALAXY ULTIMATE запущен!");
+  toast("🚀 Добро пожаловать в Galaxy Ultimate!");
+})();
+
+
+        
+    </script>
+
+</body>
+</html>
